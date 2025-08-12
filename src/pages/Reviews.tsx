@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { supabase } from '../integrations/supabase/client';
 
 export default function Reviews() {
   const [submitted, setSubmitted] = useState(false);
@@ -29,10 +30,22 @@ export default function Reviews() {
           <p className="text-primary">¡Gracias! Tu reseña quedará pendiente de moderación.</p>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              console.log("[Simulado] Enviar reseña a Supabase para moderación.");
-              setSubmitted(true);
+              const { data, error } = await supabase
+                .from('reviews')
+                .insert({
+                  name: 'Juan',
+                  review: 'Conecta muy bien con los peques.',
+                  rating: 4,
+                  status: 'pending',
+                });
+
+              if (error) {
+                console.error('Error al enviar la reseña:', error);
+              } else {
+                setSubmitted(true);
+              }
             }}
             className="grid gap-3"
             aria-label="Formulario de referencia"

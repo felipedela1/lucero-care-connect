@@ -14,13 +14,21 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [hc, setHc] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return savedTheme;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (hc) root.classList.add("hc");
-    else root.classList.remove("hc");
-  }, [hc]);
+    root.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70">
@@ -53,9 +61,9 @@ export default function Header() {
               <Link to="/reservas" aria-label="Reservar ahora">Reservar ahora</Link>
             </Button>
           </div>
-          <div className="flex items-center gap-2" aria-label="Modo alto contraste">
-            <span className="text-xs text-muted-foreground">Alto contraste</span>
-            <Switch checked={hc} onCheckedChange={setHc} aria-label="Activar alto contraste" />
+          <div className="flex items-center gap-2" aria-label="Modo de tema">
+            <span className="text-xs text-muted-foreground">Tema: {theme === "light" ? "Claro" : "Oscuro"}</span>
+            <Switch checked={theme === "dark"} onCheckedChange={toggleTheme} aria-label="Alternar tema claro/oscuro" />
           </div>
         </div>
       </nav>

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { useMemo, useState } from "react";
+import { supabase } from '../integrations/supabase/client';
 import { generateICS } from "@/lib/ics";
 
 type Service = "Canguro tardes" | "Noches y fines de semana" | "Recogida del cole";
@@ -128,27 +129,25 @@ export default function Booking() {
           <div className="flex gap-3">
             <Button variant="secondary" onClick={()=>setStep(2)}>Atrás</Button>
             <Button
-              onClick={() => {
-                // Simular creación en Supabase y notificación
-                console.log('[Simulado] Crear booking en Supabase con status=pending', {
-                  service, start, end, hours, rate_applied: rate, price_estimated: price, family,
-                });
-                // Generar ICS para descarga
-                const ics = generateICS({
-                  title: `Reserva ${service} — Lucero`,
-                  description: `Precio estimado: ${price.toFixed(2)}€ (${rate}€/h)`,
-                  start: new Date(start),
-                  end: new Date(end),
-                  location: family.address,
-                });
-                const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'reserva.ics';
-                a.click();
-                URL.revokeObjectURL(url);
-                alert('Reserva enviada (simulada). Se ha descargado el .ics');
+              onClick={async () => {
+                const { data, error } = await supabase
+                  .from('bookings')
+                  .insert({
+                    service,
+                    start,
+                    end,
+                    hours,
+                    rate_applied: rate,
+                    price_estimated: price,
+                    family,
+                    status: 'pending',
+                  });
+
+                if (error) {
+                  console.error('Error al crear la reserva:', error);
+                } else {
+                  alert('Reserva creada exitosamente');
+                }
               }}
             >
               Confirmar y descargar .ics
