@@ -10,7 +10,7 @@ export default function About() {
       </Helmet>
       <h1 className="font-heading text-3xl mb-4">Sobre mí</h1>
       <p className="text-muted-foreground max-w-2xl">
-        Soy Lucero Rodriguez Morales, educadora infantil con X años de experiencia. Me enfoco en juegos creativos,
+        Soy Lucero Rodriguez Morales, estudiante de psicología infantil con 27 años de edad. Me enfoco en juegos creativos,
         rutinas saludables y seguridad. Aquí podrás descargar mi CV y ver mi formación y certificaciones.
       </p>
       <div className="mt-6">

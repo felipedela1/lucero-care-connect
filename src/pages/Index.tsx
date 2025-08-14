@@ -27,12 +27,12 @@ const Index = () => {
           </div>
           <dl className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="rounded-xl bg-white/80 backdrop-blur p-4 border">
-              <dt className="text-sm text-muted-foreground">Experiencia</dt>
-              <dd className="font-heading text-xl">X años</dd>
+              <dt className="text-sm text-muted-foreground">Edad</dt>
+              <dd className="font-heading text-xl">27 años</dd>
             </div>
             <div className="rounded-xl bg-white/80 backdrop-blur p-4 border">
-              <dt className="text-sm text-muted-foreground">Certificación</dt>
-              <dd className="font-heading text-xl">Primeros auxilios pediátricos</dd>
+              <dt className="text-sm text-muted-foreground">Estudiando</dt>
+              <dd className="font-heading text-xl">Psicología infantil</dd>
             </div>
             <div className="rounded-xl bg-white/80 backdrop-blur p-4 border">
               <dt className="text-sm text-muted-foreground">Idiomas</dt>

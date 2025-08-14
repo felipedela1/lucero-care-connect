@@ -133,14 +133,18 @@ export default function Booking() {
                 const { data, error } = await supabase
                   .from('bookings')
                   .insert({
-                    service,
-                    start,
-                    end,
+                    family_id: 'uuid-de-la-familia', // p.ej. auth.user().id
+                    caregiver_id: 'uuid-de-la-cuidadora',
+                    service_id: 'uuid-del-servicio', // no el nombre, el id real en la tabla services
+                    start_at: start,
+                    end_at: end,
+                    is_near_metro: family.nearMetro,
                     hours,
                     rate_applied: rate,
                     price_estimated: price,
-                    family,
                     status: 'pending',
+                    address: family.address,
+                    notes: family.notes
                   });
 
                 if (error) {

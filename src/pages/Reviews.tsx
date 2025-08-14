@@ -35,10 +35,11 @@ export default function Reviews() {
               const { data, error } = await supabase
                 .from('reviews')
                 .insert({
+                  booking_id: 'uuid-de-la-reserva',
                   name: 'Juan',
-                  review: 'Conecta muy bien con los peques.',
                   rating: 4,
-                  status: 'pending',
+                  comment: 'Conecta muy bien con los peques.',
+                  is_approved: false
                 });
 
               if (error) {
