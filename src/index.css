@@ -53,6 +53,9 @@ All colors MUST be HSL.
     /* Gradients & shadows */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
     --gradient-cta: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--accent-2)) 100%);
+    --gradient-soft: radial-gradient(circle at 30% 20%, hsl(var(--accent) / 0.35), transparent 60%),
+                     radial-gradient(circle at 80% 70%, hsl(var(--primary) / 0.25), transparent 65%);
     --primary-glow: 262 83% 85%;
     --shadow-elev: 0 10px 30px -10px hsl(var(--primary) / 0.25);
   }
@@ -111,5 +114,80 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Animaciones */
+@layer utilities {
+  @keyframes float-fade {
+    0%,100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-6px); opacity: .85; }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 hsl(var(--primary) / .45); }
+    70% { box-shadow: 0 0 0 12px hsl(var(--primary) / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+  }
+
+  .app-gradient-bg {
+    background:
+      var(--gradient-soft),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+    min-height: 100%;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/60 dark:bg-white/5 border border-white/40 dark:border-white/10 shadow;
+  }
+
+  .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .btn-gradient {
+    background: var(--gradient-accent);
+    color: hsl(var(--primary-foreground));
+    position: relative;
+    transition: filter .25s, transform .25s;
+  }
+  .btn-gradient:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .btn-gradient:active { transform: translateY(0); }
+
+  .focus-ring-vivid:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
+  }
+
+  .input-modern {
+    @apply rounded-lg border bg-white/70 dark:bg-white/10 backdrop-blur px-3 py-2 text-sm transition;
+  }
+  .input-modern:focus {
+    @apply border-primary ring-2 ring-primary/40;
+  }
+
+  .animate-float { animation: float-fade 6s ease-in-out infinite; }
+  .animate-ring { animation: pulse-ring 2.6s infinite; }
+
+  .underline-fx {
+    position: relative;
+  }
+  .underline-fx::after {
+    content:"";
+    position:absolute;
+    left:0; bottom:-4px;
+    height:3px; width:0;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    transition: width .35s;
+  }
+  .underline-fx:hover::after { width:100%; }
+}
+
+/* Efecto suave global para transiciones */
+@layer base {
+  body, button, a, input, textarea {
+    transition: background-color .3s, color .3s, border-color .3s, box-shadow .3s;
   }
 }

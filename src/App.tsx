@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import Index from "./pages/Index";
@@ -15,8 +15,9 @@ import PricingFaq from "./pages/PricingFaq";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import AdminAvailability from "./pages/AdminAvailability";
-import ProtectedRoute from "./components/routing/ProtectedRoute";
-import LoginScreen from "./pages/LoginScreen";
+import RegistroScreen from "@/pages/Registro";
+import LoginScreen from "@/pages/LoginScreen"; // Asegúrate de tener esta importación
+
 
 const queryClient = new QueryClient();
 
@@ -28,102 +29,27 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {/* LoginScreen en la raíz */}
-            <Route path="/" element={<LoginScreen />} />
+            {/* Ruta de login */}
+            <Route path="/login" element={<LoginScreen />} />
+
+            {/* Redirect root to /inicio */}
+            <Route path="/" element={<Navigate to="/inicio" replace />} />
+
+            {/* Página pública de registro */}
+            <Route path="/registro" element={<RegistroScreen />} />
 
             {/* Página principal en /inicio */}
-            <Route
-              path="/inicio"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <Index />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/inicio" element={<Layout><Index /></Layout>} />
 
-            {/* Otras rutas */}
-            <Route
-              path="/sobre-mi"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <About />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/experiencia"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <Experience />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/referencias"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <Reviews />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/reservas"
-              element={
-                <ProtectedRoute allow={["user","guest"]}>
-                  <Layout>
-                    <Booking />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/tarifas-faq"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <PricingFaq />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/contacto"
-              element={
-                <ProtectedRoute allow={["user", "guest"]}>
-                  <Layout>
-                    <Contact />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/panel"
-              element={
-                <ProtectedRoute allow={["user"]}>
-                  <Layout>
-                    <Dashboard />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin-availability"
-              element={
-                <ProtectedRoute allow={["admin", "guest"]}>
-                  <Layout>
-                    <AdminAvailability />
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
+            {/* Otras rutas públicas */}
+            <Route path="/sobre-mi" element={<Layout><About /></Layout>} />
+            <Route path="/experiencia" element={<Layout><Experience /></Layout>} />
+            <Route path="/referencias" element={<Layout><Reviews /></Layout>} />
+            <Route path="/reservas" element={<Layout><Booking /></Layout>} />
+            <Route path="/tarifas-faq" element={<Layout><PricingFaq /></Layout>} />
+            <Route path="/contacto" element={<Layout><Contact /></Layout>} />
+            <Route path="/panel" element={<Layout><Dashboard /></Layout>} />
+            <Route path="/admin-availability" element={<Layout><AdminAvailability /></Layout>} />
 
             {/* Ruta de captura */}
             <Route path="*" element={<NotFound />} />
