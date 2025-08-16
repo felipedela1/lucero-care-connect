@@ -52,7 +52,7 @@ const App = () => (
             <Route path="/admin-availability" element={<Layout><AdminAvailability /></Layout>} />
 
             {/* Ruta de captura */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/inicio" replace />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

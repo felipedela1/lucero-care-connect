@@ -190,7 +190,7 @@ export default function Header() {
                    asChild
                    className="rounded-xl text-[11px] h-9 px-4 bg-white/55 dark:bg-white/10 hover:bg-primary/12 border-none shadow-sm"
                  >
-                   <Link to="/Login">Inicia Sesión</Link>
+                   <Link to="/login">Inicia Sesión</Link>
                  </Button>
                )}
              </div>
@@ -261,7 +261,7 @@ export default function Header() {
                      className="btn-gradient rounded-xl w-full h-10 leading-none !text-sm"
                      onClick={() => setMobileMenuOpen(false)}
                    >
-                     <Link to="/Login">Inicia Sesión</Link>
+                     <Link to="/login">Inicia Sesión</Link>
                    </Button>
                  )}
                  <Button
