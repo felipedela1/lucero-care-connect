@@ -21,7 +21,7 @@ const Index = () => {
         // Attempt auto-login with provided credentials
         const { data, error } = await supabase.auth.signInWithPassword({
           email: "felipedelacruzgoon@gmail.com",
-          password: "Qwerty1",
+          password: "Qwerty12",
         });
 
         if (error) {

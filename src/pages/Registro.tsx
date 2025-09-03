@@ -106,16 +106,16 @@ export default function RegistroScreen() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-semibold mb-4">Crear cuenta</h1>
+      <div className="max-w-md w-full p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+        <h1 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Crear cuenta</h1>
 
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">Nombre completo (opcional)</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Nombre completo (opcional)</label>
             <input
               id="reg-fullname"
               type="text"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="Tu nombre"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
@@ -124,11 +124,11 @@ export default function RegistroScreen() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Email</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Email</label>
             <input
               id="reg-email"
               type="email"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="tu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -138,11 +138,11 @@ export default function RegistroScreen() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Password</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Password</label>
             <input
               id="reg-password"
               type="password"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -153,11 +153,11 @@ export default function RegistroScreen() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Repite la password</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Repite la password</label>
             <input
               id="reg-password2"
               type="password"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="••••••••"
               value={password2}
               onChange={(e) => setPassword2(e.target.value)}
@@ -174,13 +174,13 @@ export default function RegistroScreen() {
         </form>
 
         {/* Estados */}
-        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-        {info && <p className="text-green-600 text-sm mt-2">{info}</p>}
+        {error && <p className="text-red-500 dark:text-red-400 text-sm mt-2">{error}</p>}
+        {info && <p className="text-green-600 dark:text-green-500 text-sm mt-2">{info}</p>}
 
         {/* Navegación secundaria */}
         <div className="mt-4 text-sm text-center">
           {" "}
-          <Link to="/" className="text-primary underline">
+          <Link to="/" className="text-primary hover:text-primary/80 dark:text-blue-400 dark:hover:text-blue-300 underline">
             ¿Continuar como invitado?
           </Link>
         </div>

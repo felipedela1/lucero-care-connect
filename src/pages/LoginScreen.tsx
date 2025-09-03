@@ -55,15 +55,15 @@ export default function LoginScreen() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-semibold mb-4">Acceder</h1>
+      <div className="max-w-md w-full p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+        <h1 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Acceder</h1>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">Email</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Email</label>
             <input
               type="email"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="tu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -73,10 +73,10 @@ export default function LoginScreen() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Password</label>
+            <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">Password</label>
             <input
               type="password"
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -111,7 +111,7 @@ export default function LoginScreen() {
           </div>
         </form>
 
-        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        {error && <p className="text-red-500 dark:text-red-400 text-sm mt-2">{error}</p>}
       </div>
     </div>
   );
