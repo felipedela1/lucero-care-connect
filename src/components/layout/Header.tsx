@@ -113,9 +113,6 @@ export default function Header() {
             <span className="font-heading text-[1.45rem] font-bold gradient-text tracking-tight select-none leading-none">
               Cuidadora
             </span>
-            <span className="hidden md:inline text-[11px] font-medium text-muted-foreground group-hover:text-foreground transition translate-y-[1px] select-none">
-               Cuidado infantil en Sevilla
-            </span>
            </Link>
            {/* Desktop nav */}
            <ul className="hidden lg:flex items-center gap-1.5">
