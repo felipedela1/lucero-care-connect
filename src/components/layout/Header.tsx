@@ -111,7 +111,7 @@ export default function Header() {
              aria-label="Ir a inicio"
            >
             <span className="font-heading text-[1.45rem] font-bold gradient-text tracking-tight select-none leading-none">
-              Lucero
+              Cuidadora
             </span>
             <span className="hidden md:inline text-[11px] font-medium text-muted-foreground group-hover:text-foreground transition translate-y-[1px] select-none">
                Cuidado infantil en Sevilla

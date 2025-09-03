@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 blur-3xl opacity-60 pointer-events-none" />
         <div className="grid gap-10 md:grid-cols-3 relative z-10">
           <div className="space-y-3">
-            <p className="font-heading text-2xl font-bold gradient-text leading-none">Lucero</p>
+            <p className="font-heading text-2xl font-bold gradient-text leading-none">Cuidadora</p>
             <p className="text-sm text-muted-foreground">
               Cuidado infantil cercano en Sevilla. Rutinas sanas, juego creativo y tranquilidad para la familia.
             </p>
@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
         <div className="mt-10 pt-6 border-t border-white/30 dark:border-white/10 text-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Lucero. Todos los derechos reservados.
+            © {new Date().getFullYear()} Felipe de la Cruz Gozalbes. Todos los derechos reservados.
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ const staticReviews = [
 	{
 		name: "Ana García — Triana",
 		rating: 5,
-		text: "Lucero es muy responsable y cariñosa. Mis hijos la adoran y siempre están deseando que vuelva.",
+		text: "Cuidadora es muy responsable y cariñosa. Mis hijos la adoran y siempre están deseando que vuelva.",
 	},
 	{
 		name: "Carlos Ruiz — Nervión",
@@ -60,7 +60,7 @@ export default function Reviews() {
 	return (
 		<section className="app-gradient-bg min-h-screen py-14 px-4 flex flex-col items-center w-full">
 			<Helmet>
-				<title>Referencias | Lucero — Cuidadora en Sevilla</title>
+				<title>Referencias | Cuidadora — Cuidadora en Sevilla</title>
 				<meta
 					name="description"
 					content="Reseñas verificadas de familias. Deja tu referencia (moderación antes de publicar)."

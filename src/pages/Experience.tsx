@@ -58,7 +58,7 @@ export default function Experience() {
 	return (
 		<section className="app-gradient-bg min-h-screen py-14 px-4 flex flex-col items-center w-full">
 			<Helmet>
-				<title>Experiencia | Lucero — Cuidadora en Sevilla</title>
+				<title>Experiencia | Cuidadora — Cuidadora en Sevilla</title>
 				<meta
 					name="description"
 					content="Casos reales, edades y tareas realizadas. Más de 3 meses en cada familia y cuidado de familiares y amigos."

@@ -40,7 +40,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Lucero Rodriguez Morales | Cuidadora en Sevilla</title>
+        <title>Cuidadora | Cuidadora en Sevilla</title>
         <meta
           name="description"
           content="Cuidado con cariño, confianza y experiencia en Sevilla. Apoyo flexible: tardes, noches y fines de semana."

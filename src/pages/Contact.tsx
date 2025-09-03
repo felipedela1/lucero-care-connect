@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section className="app-gradient-bg py-14 px-4 flex flex-col items-center w-full">
       <Helmet>
-        <title>Contacto | Lucero — Cuidadora en Sevilla</title>
+        <title>Contacto | Cuidadora — Cuidadora en Sevilla</title>
         <meta name="description" content="Escríbeme por WhatsApp o envía el formulario. Click-to-call disponible." />
         <link rel="canonical" href={window.location.href} />
       </Helmet>

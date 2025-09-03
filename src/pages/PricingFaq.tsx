@@ -10,7 +10,7 @@ export default function PricingFaq() {
 	return (
 		<section className="app-gradient-bg min-h-screen py-14 px-4 flex flex-col items-center w-full">
 			<Helmet>
-				<title>Tarifas y FAQ | Lucero — Cuidadora en Sevilla</title>
+				<title>Tarifas y FAQ | Cuidadora — Cuidadora en Sevilla</title>
 				<meta
 					name="description"
 					content="13€/h cerca del metro y 15€/h lejos del metro. Preguntas frecuentes sobre reservas y política de cancelación."

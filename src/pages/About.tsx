@@ -7,7 +7,7 @@ export default function About() {
         <title>Sobre mí | Cuidadora en Sevilla</title>
         <meta
           name="description"
-          content="Conoce a Lucero: enfoque educativo, valores, formación y certificaciones para el cuidado infantil en Sevilla."
+          content="Conoce a Cuidadora: enfoque educativo, valores, formación y certificaciones para el cuidado infantil en Sevilla."
         />
         <link rel="canonical" href={window.location.href} />
       </Helmet>
@@ -18,7 +18,7 @@ export default function About() {
             Sobre mí
           </h1>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-            Soy <strong className="text-foreground">Lucero Rodríguez Morales</strong>, estudiante de psicología
+            Soy <strong className="text-foreground">Cuidadora</strong>, estudiante de psicología
             infantil (27 años). Apoyo familias fomentando hábitos sanos, juego creativo, vínculo seguro y
             tranquilidad para madres y padres.
           </p>
